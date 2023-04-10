@@ -51,7 +51,7 @@ public class UserController {
         }
     }
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
-    public String logout(HttpServletRequest request, HttpServletResponse response) {
+    public ResponseEntity<?> logout(HttpServletRequest request, HttpServletResponse response) {
         request.getSession().invalidate();
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
@@ -62,7 +62,7 @@ public class UserController {
                 response.addCookie(cookie);
             }
         }
-
-        return "logout";
+        return ResponseEntity.ok(new MessageResponse(0,"You are logout"));
+//        return "redirect:/login";
     }
 }
