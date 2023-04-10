@@ -76,8 +76,7 @@ public class UserService {
     }
     public boolean updatePassword(String token, String newPassword) {
         if (token!=null){
-            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-            String encodedPassword = passwordEncoder.encode(newPassword);
+            String encodedPassword = encoder.encode(newPassword);
             User user=userRepository.findByResetPasswordToken(token);
             if (user!=null){
                 user.setPassword(encodedPassword);
@@ -99,8 +98,9 @@ public class UserService {
         if(username!=null){
             User user=userRepository.findByUsername(username);
             if (user!=null){
-                if(user.getPassword().equals(encoder.encode(changePasswordRequest.getCurrent_password()))){
+                if(encoder.matches(changePasswordRequest.getCurrent_password(), user.getPassword())){
                     user.setPassword(encoder.encode(changePasswordRequest.getNew_password()));
+                    userRepository.save(user);
                     return true;
                 }
             }
