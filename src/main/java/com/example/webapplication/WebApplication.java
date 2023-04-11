@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
-@EnableAsync
+//@EnableAsync
 public class WebApplication implements CommandLineRunner {
 	@Autowired
 	RoleService roleService;
