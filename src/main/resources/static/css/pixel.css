@@ -1,0 +1,395 @@
+body {
+    color:black;
+    font-family: "Questrial", sans-serif;
+    background-color: #ffec63;
+    background-image: linear-gradient(
+            45deg,
+            #ffd966 25%,
+            transparent 25%,
+            transparent 75%,
+            #ffd966 75%,
+            #ffd966
+    ),
+    linear-gradient(
+            -45deg,
+            #ffd966 25%,
+            transparent 25%,
+            transparent 75%,
+            #ffd966 75%,
+            #ffd966
+    );
+    background-size: 60px 60px;
+    background-position: 0 0;
+    animation: slide 4s infinite linear;
+}
+
+@keyframes slide {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -120px 60px;
+    }
+}
+
+
+.file-upload {
+    background-color: #ffffff;
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.result-code{
+
+    background-color: #ffffff;
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.code{
+    position: relative;
+}
+.loading{
+    background-color: #ffffff;
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.file-upload-btn {
+    width: 100%;
+    margin: 0;
+    color: #fff;
+    background: #1FB264;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid #15824B;
+    transition: all .2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.file-upload-btn:hover {
+    background: #1AA059;
+    color: #ffffff;
+    transition: all .2s ease;
+    cursor: pointer;
+}
+
+.file-upload-btn:active {
+    border: 0;
+    transition: all .2s ease;
+}
+
+.file-upload-content {
+    display: none;
+    text-align: center;
+}
+
+.file-upload-input {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.image-upload-wrap {
+    margin-top: 20px;
+    border: 4px dashed #1FB264;
+    position: relative;
+}
+
+.image-dropping,
+.image-upload-wrap:hover {
+    background-color: #1FB264;
+    border: 4px dashed #ffffff;
+}
+
+.image-title-wrap {
+    padding: 0 15px 15px 15px;
+    color: #222;
+}
+
+.drag-text {
+    text-align: center;
+}
+
+.drag-text h3 {
+    font-weight: 100;
+    text-transform: uppercase;
+    color: #15824B;
+    padding: 60px 0;
+}
+
+.file-upload-image {
+    max-height: 200px;
+    max-width: 200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.remove-image {
+    width: 200px;
+    margin: 0;
+    color: #fff;
+    background: #cd4535;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid #b02818;
+    transition: all .2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.remove-image:hover {
+    background: #c13b2a;
+    color: #ffffff;
+    transition: all .2s ease;
+    cursor: pointer;
+}
+
+.remove-image:active {
+    border: 0;
+    transition: all .2s ease;
+}
+.submit-image:hover {
+    background: #1FB264;
+    color: #ffffff;
+    transition: all .2s ease;
+    cursor: pointer;
+}
+
+.submit-image:active {
+    border: 0;
+    transition: all .2s ease;
+}
+.submit-image {
+    width: 200px;
+    margin: 0;
+    color: #fff;
+    background: #1FB264;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid #1FB264;
+    transition: all .2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.basic-slide {
+    display: inline-block;
+    width: 215px;
+    padding: 10px 0 10px 15px;
+    font-family: "Open Sans", sans;
+    font-weight: 400;
+    color: #377D6A;
+    background: #efefef;
+    border: 0;
+    border-radius: 3px;
+    outline: 0;
+    text-indent: 70px;
+    transition: all .3s ease-in-out;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loadingspinner {
+    --square: 26px;
+    --offset: 30px;
+
+    --duration: 2.4s;
+    --delay: 0.2s;
+    --timing-function: ease-in-out;
+
+    --in-duration: 0.4s;
+    --in-delay: 0.1s;
+    --in-timing-function: ease-out;
+
+    width: calc( 3 * var(--offset) + var(--square));
+    height: calc( 2 * var(--offset) + var(--square));
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.loadingspinner div {
+    display: inline-block;
+    background: darkorange;
+    /*background: var(--text-color);*/
+    /*box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);*/
+    border: none;
+    border-radius: 2px;
+    width: var(--square);
+    height: var(--square);
+    position: absolute;
+    padding: 0px;
+    margin: 0px;
+    font-size: 6pt;
+    color: black;
+}
+
+.loadingspinner #square1 {
+    left: calc( 0 * var(--offset) );
+    top:  calc( 0 * var(--offset) );
+    animation: square1 var(--duration) var(--delay) var(--timing-function) infinite,
+    squarefadein var(--in-duration) calc(1 * var(--in-delay)) var(--in-timing-function) both;
+}
+
+.loadingspinner #square2 {
+    left: calc( 0 * var(--offset) );
+    top:  calc( 1 * var(--offset) );
+    animation: square2 var(--duration) var(--delay) var(--timing-function) infinite,
+    squarefadein var(--in-duration) calc(1 * var(--in-delay)) var(--in-timing-function) both;
+}
+
+.loadingspinner #square3 {
+    left: calc( 1 * var(--offset) );
+    top:  calc( 1 * var(--offset) );
+    animation: square3 var(--duration) var(--delay) var(--timing-function) infinite,
+    squarefadein var(--in-duration) calc(2 * var(--in-delay)) var(--in-timing-function) both;
+}
+
+.loadingspinner #square4 {
+    left: calc( 2 * var(--offset) );
+    top:  calc( 1 * var(--offset) );
+    animation: square4 var(--duration) var(--delay) var(--timing-function) infinite,
+    squarefadein var(--in-duration) calc(3 * var(--in-delay)) var(--in-timing-function) both;
+}
+
+.loadingspinner #square5 {
+    left: calc( 3 * var(--offset) );
+    top:  calc( 1 * var(--offset) );
+    animation: square5 var(--duration) var(--delay) var(--timing-function) infinite,
+    squarefadein var(--in-duration) calc(4 * var(--in-delay)) var(--in-timing-function) both;
+}
+
+@keyframes square1 {
+    0%      {left: calc( 0 * var(--offset) ); top: calc( 0 * var(--offset) ); }
+    8.333%  {left: calc( 0 * var(--offset) ); top: calc( 1 * var(--offset) ); }
+    100%    {left: calc( 0 * var(--offset) ); top: calc( 1 * var(--offset) ); }
+}
+
+@keyframes square2 {
+    0%      {left: calc( 0 * var(--offset) ); top: calc( 1 * var(--offset) ); }
+    8.333%  {left: calc( 0 * var(--offset) ); top: calc( 2 * var(--offset) ); }
+    16.67%  {left: calc( 1 * var(--offset) ); top: calc( 2 * var(--offset) ); }
+    25.00%  {left: calc( 1 * var(--offset) ); top: calc( 1 * var(--offset) ); }
+    83.33%  {left: calc( 1 * var(--offset) ); top: calc( 1 * var(--offset) ); }
+    91.67%  {left: calc( 1 * var(--offset) ); top: calc( 0 * var(--offset) ); }
+    100%    {left: calc( 0 * var(--offset) ); top: calc( 0 * var(--offset) ); }
+}
+
+@keyframes square3 {
+    0%,100% {left: calc( 1 * var(--offset) ); top: calc( 1 * var(--offset) ); }
+    16.67%  {left: calc( 1 * var(--offset) ); top: calc( 1 * var(--offset) ); }
+    25.00%  {left: calc( 1 * var(--offset) ); top: calc( 0 * var(--offset) ); }
+    33.33%  {left: calc( 2 * var(--offset) ); top: calc( 0 * var(--offset) ); }
+    41.67%  {left: calc( 2 * var(--offset) ); top: calc( 1 * var(--offset) ); }
+    66.67%  {left: calc( 2 * var(--offset) ); top: calc( 1 * var(--offset) ); }
+    75.00%  {left: calc( 2 * var(--offset) ); top: calc( 2 * var(--offset) ); }
+    83.33%  {left: calc( 1 * var(--offset) ); top: calc( 2 * var(--offset) ); }
+    91.67%  {left: calc( 1 * var(--offset) ); top: calc( 1 * var(--offset) ); }
+}
+
+@keyframes square4 {
+    0%      {left: calc( 2 * var(--offset) ); top: calc( 1 * var(--offset) ); }
+    33.33%  {left: calc( 2 * var(--offset) ); top: calc( 1 * var(--offset) ); }
+    41.67%  {left: calc( 2 * var(--offset) ); top: calc( 2 * var(--offset) ); }
+    50.00%  {left: calc( 3 * var(--offset) ); top: calc( 2 * var(--offset) ); }
+    58.33%  {left: calc( 3 * var(--offset) ); top: calc( 1 * var(--offset) ); }
+    100%    {left: calc( 3 * var(--offset) ); top: calc( 1 * var(--offset) ); }
+}
+
+@keyframes square5 {
+    0%      {left: calc( 3 * var(--offset) ); top: calc( 1 * var(--offset) ); }
+    50.00%  {left: calc( 3 * var(--offset) ); top: calc( 1 * var(--offset) ); }
+    58.33%  {left: calc( 3 * var(--offset) ); top: calc( 0 * var(--offset) ); }
+    66.67%  {left: calc( 2 * var(--offset) ); top: calc( 0 * var(--offset) ); }
+    75.00%  {left: calc( 2 * var(--offset) ); top: calc( 1 * var(--offset) ); }
+    100%    {left: calc( 2 * var(--offset) ); top: calc( 1 * var(--offset) ); }
+}
+
+@keyframes squarefadein {
+    0%      {transform: scale(0.75); opacity: 0.0;}
+    100%    {transform: scale(1.0); opacity: 1.0;}
+}
+textarea {
+    resize: none;
+}
+textarea.auto {
+    overflow-y: hidden;
+}
+textarea {
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    outline: none;
+    width: 100%;
+    max-width: 240px;
+    font-size: 14px;
+    font-family: 'Inter';
+    line-height: 22px;
+    padding: 16px 20px;
+    border-radius: 15px;
+    color: #404660;
+    border: none;
+    background: #fff;
+    transition: box-shadow 0.25s;
+    box-shadow: inset 0 0 0 1px var(--border-color, #e1e6f9), 0 0 0 3px var(--focus-color, transparent);
+}
+textarea:focus {
+    --focus-color: #eceffc;
+}
+textarea:focus, textarea:hover {
+    --border-color: #bbc1e1;
+}
+
+pre {
+    margin: 60px 0 0 0;
+    padding: 20px 24px;
+    border-radius: 15px;
+    background: #171827;
+}
+pre code {
+    font-family: 'Fira Mono';
+    color: #bbc1e1;
+    line-height: 1.4;
+    font-size: 12px;
+}
+pre code .token.function {
+    color: #5c86ff;
+}
+pre code .token.string {
+    color: #f0b849;
+}
+pre code .token.parameter {
+    color: #cb7dd0;
+}
+pre code .token.punctuation {
+    color: #8a91b4;
+}
+.download-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #171827;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}

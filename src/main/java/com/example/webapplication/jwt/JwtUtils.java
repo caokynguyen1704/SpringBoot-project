@@ -20,10 +20,9 @@ public class JwtUtils {
   private String jwtSecret="keyjwt";
 
 
-  private int jwtExpirationMs=24*60*60;
+  private int jwtExpirationMs=24*60*60*1000;
 
   public String generateJwtToken(Authentication authentication) {
-
     UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
     String md5Password = DigestUtils.md5DigestAsHex(userPrincipal.getPassword().getBytes());
     return Jwts.builder().setSubject((userPrincipal.getUsername())).claim("key", md5Password).setIssuedAt(new Date())
@@ -43,6 +42,7 @@ public class JwtUtils {
       Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(authToken);
       return true;
     }catch (Exception e){
+      System.out.println(e);
     }
 
     return false;

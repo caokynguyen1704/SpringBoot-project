@@ -67,7 +67,7 @@ public class NonUserController {
 			String jwt = jwtUtils.generateJwtToken(authentication);
 
 			Cookie jwtCookie = new Cookie("Authorization",jwt);
-			jwtCookie.setMaxAge(3600);
+			jwtCookie.setMaxAge(24*60*60*1000);
 			jwtCookie.setPath("/");
 			response.addCookie(jwtCookie);
 

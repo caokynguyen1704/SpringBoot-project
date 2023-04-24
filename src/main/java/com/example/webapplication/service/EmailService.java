@@ -51,7 +51,7 @@ public class EmailService {
     public CompletableFuture sendMailForResetPassword(String token, String email){
         Email mail=new Email();
         mail.setRecipient(email);
-        String link=request.getScheme() + "://" + request.getServerName()+":"+request.getServerPort()+"/api/v1/guest/verify/"+token;
+        String link=request.getScheme() + "://" + request.getServerName()+":"+request.getServerPort()+"/reset-password?token="+token;
         mail.setMsgBody("Please visit this page to reset your password: \n" +link +"\nThis code is valid for 20 minutes\n");
         mail.setSubject("Reset your password");
         this.sendSimpleMail(mail);

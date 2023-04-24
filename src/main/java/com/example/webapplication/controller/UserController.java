@@ -3,6 +3,7 @@ package com.example.webapplication.controller;
 import com.example.webapplication.DTO.request.ChangePasswordRequest;
 import com.example.webapplication.DTO.response.MessageResponse;
 import com.example.webapplication.jwt.JwtUtils;
+import com.example.webapplication.service.CookieService;
 import com.example.webapplication.service.UserService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,12 +21,14 @@ public class UserController {
     private UserService userService;
     @Autowired
     private JwtUtils jwtUtils;
+    @Autowired
+    private CookieService cookieService;
     @PostMapping("/change-password")
-    public ResponseEntity<?> changePass(@Valid @RequestBody ChangePasswordRequest changePasswordRequest, HttpServletRequest request){
+    public ResponseEntity<?> changePass(@Valid @RequestBody ChangePasswordRequest changePasswordRequest, HttpServletRequest request,HttpServletResponse response){
         try {
             String jwt = jwtUtils.parseJwt(request);
             if(jwt !=null){
-                if(jwtUtils.validateJwtToken(jwt)){
+                if(cookieService.checkJwt(jwt,request,response)){
                     if(userService.changePasswordByJWT(jwt,changePasswordRequest)){
                         return ResponseEntity.ok(new  MessageResponse(0,"Password change!!"));
                     }
@@ -37,12 +40,14 @@ public class UserController {
         }
     }
     @PostMapping("/profile")
-    public ResponseEntity<?> getProfile(HttpServletRequest request){
+    public ResponseEntity<?> getProfile(HttpServletRequest request,HttpServletResponse response){
         try {
             String jwt = jwtUtils.parseJwt(request);
+            System.out.println(jwtUtils.validateJwtToken(jwt));
             if(jwt !=null){
-                if(jwtUtils.validateJwtToken(jwt)){
+                if(cookieService.checkJwt(jwt,request,response)){
                     return ResponseEntity.ok(userService.getProfileUser(jwtUtils.getUserNameFromJwtToken(jwt)));
+
                 }
             }
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new MessageResponse(400, "Lỗi xác thực"));
@@ -65,4 +70,5 @@ public class UserController {
         return ResponseEntity.ok(new MessageResponse(0,"You are logout"));
 //        return "redirect:/login";
     }
+
 }

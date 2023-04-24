@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pixel</title>
+    <link rel="stylesheet" th:href="@{/css/pixel.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/start.js}"></script>
+</head>
+<body>
+
+
+
+    <div class="file-upload">
+        <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Chọn ảnh</button>
+
+        <div class="image-upload-wrap">
+            <input class="file-upload-input" name="file" type='file' onchange="readURL(this);" accept="image/*" />
+            <div class="drag-text">
+                <h3>Kéo thả ảnh cần chuyển</h3>
+            </div>
+        </div>
+        <div class="file-upload-content">
+            <img class="file-upload-image" src="#" alt="your image" />
+            <div class="image-title-wrap">
+                <span>
+                    <input class="basic-slide" id="width" name="width" type="number" placeholder="Độ dài" required/>
+                </span>
+                <span>
+                    <input class="basic-slide" id="height" name="height" type="number" placeholder="Độ rộng" required/>
+                </span>
+                <br>
+                <button type="button" class="submit-image">Chuyển</button>
+            </div>
+        </div>
+    </div>
+    <div class="loading" style="display: none;">
+        <div class="container">
+            <div class="loadingspinner">
+                <div id="square1"></div>
+                <div id="square2"></div>
+                <div id="square3"></div>
+                <div id="square4"></div>
+                <div id="square5"></div>
+            </div>
+        </div>
+    </div>
+    <div class="result-code" style="display: none;">
+
+        <pre class="code">
+<button class="download-btn"><i class="fa fa-download" style="font-size:36px"></i></button>
+
+
+            <code class="language-js">
+
+            </code>
+        </pre>
+    </div>
+
+<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script th:src="@{/js/pixel.js}"></script>
+
+</body>
+</html>
